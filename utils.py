@@ -129,7 +129,7 @@ def RespondToThisName(Name):
 		if settings.Config.ShannonStripLocal:
 			ShannonName = ShannonName.replace('.local','')
 		Entropy = Shannon.shannon_entropy(ShannonName)
-		print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
+		# print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
 		if Entropy > settings.Config.ShannonMax:
 			print(color('[*]', 3, 1), 'Skipping host over Shannon Entropy Threshold: %s - %f' % Name, Entropy)
 			return False

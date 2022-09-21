@@ -103,7 +103,7 @@ class Settings:
 
 		# Shannon
 		self.ShannonMax 	 = float(config.get('Responder Core', 'ShannonMax'))
-		self.ShannonStripLocal = self.toBool(config.get('Responder Code', 'ShannonStripLocal'))
+		self.ShannonStripLocal = self.toBool(config.get('Responder Core', 'ShannonStripLocal'))
 
 		# Db File
 		self.DatabaseFile    = os.path.join(self.ResponderPATH, config.get('Responder Core', 'Database'))

@@ -131,7 +131,8 @@ def RespondToThisName(Name):
 		Entropy = Shannon.shannon_entropy(ShannonName)
 		print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
 		if Entropy > settings.Config.ShannonMax:
-			print("We'd skip this!!!!!!!!!!!!!!")
+			print(color('[*]', 3, 1), 'Skipping host over Shannon Entropy Threshold: %s - %f' % Name, Entropy)
+			return False
 	if settings.Config.RespondToName and Name.upper() not in settings.Config.RespondToName:
 		return False
 	elif Name.upper() in settings.Config.RespondToName or settings.Config.RespondToName == []:

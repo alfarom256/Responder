@@ -25,7 +25,6 @@ import datetime
 import codecs
 import struct
 import random
-
 from tools import Shannon
 
 try:
@@ -126,7 +125,10 @@ def RespondToThisIP(ClientIp):
 
 def RespondToThisName(Name):
 	Entropy = Shannon.shannon_entropy(Name)
-	print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
+	if settings.Config.ShannonMax and settings.Config.ShannonMax != 0:
+		print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
+		if Entropy > settings.Config.ShannonMax:
+			print("We'd skip this!!!!!!!!!!!!!!")
 	if settings.Config.RespondToName and Name.upper() not in settings.Config.RespondToName:
 		return False
 	elif Name.upper() in settings.Config.RespondToName or settings.Config.RespondToName == []:

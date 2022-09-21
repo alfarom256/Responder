@@ -124,8 +124,11 @@ def RespondToThisIP(ClientIp):
 	return False
 
 def RespondToThisName(Name):
-	Entropy = Shannon.shannon_entropy(Name)
+	ShannonName = Name
 	if settings.Config.ShannonMax and settings.Config.ShannonMax != 0:
+		if settings.Config.ShannonStripLocal:
+			ShannonName = ShannonName.replace('.local','')
+		Entropy = Shannon.shannon_entropy(ShannonName)
 		print("""DING DONG DING DONG!!!! - {} - entropy {}""".format(Name, Entropy))
 		if Entropy > settings.Config.ShannonMax:
 			print("We'd skip this!!!!!!!!!!!!!!")

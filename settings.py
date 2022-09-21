@@ -14,6 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from re import S
 import utils, sys, random
 if (sys.version_info > (3, 0)):
 	import configparser as ConfigParser
@@ -102,6 +103,7 @@ class Settings:
 
 		# Shannon
 		self.ShannonMax 	 = float(config.get('Responder Core', 'ShannonMax'))
+		self.ShannonStripLocal = self.toBool(config.get('Responder Code', 'ShannonStripLocal'))
 
 		# Db File
 		self.DatabaseFile    = os.path.join(self.ResponderPATH, config.get('Responder Core', 'Database'))

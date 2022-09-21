@@ -101,7 +101,7 @@ class Settings:
 		self.Krb_On_Off      = self.toBool(config.get('Responder Core', 'Kerberos'))
 
 		# Shannon
-		self.ShannonMax 	 = config.get('Responder Core', 'ShannonMax')
+		self.ShannonMax 	 = float(config.get('Responder Core', 'ShannonMax'))
 
 		# Db File
 		self.DatabaseFile    = os.path.join(self.ResponderPATH, config.get('Responder Core', 'Database'))

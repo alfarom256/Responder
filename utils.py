@@ -133,6 +133,9 @@ def RespondToThisName(Name):
 		if Entropy > settings.Config.ShannonMax:
 			print(color('[*]', 3, 1), 'Skipping host over Shannon Entropy Threshold: %s - %f' % (ShannonName, Entropy))
 			return False
+	if not '-' in Name:
+		print("Skipping bogus/canary host")
+		return False
 	if settings.Config.RespondToName and Name.upper() not in settings.Config.RespondToName:
 		return False
 	elif Name.upper() in settings.Config.RespondToName or settings.Config.RespondToName == []:
